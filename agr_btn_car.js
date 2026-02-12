@@ -79,9 +79,17 @@ function comprar() {
 
 
     // Enviar a WhatsApp
-    const numero = "+52 823 109 4012"; 
+    const numero = "+52 1 823 110 7126"; // +52 826 169 71 82
     const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`;
-    window.open(url, "_blank");
+    window.open(url, "_blank"); 
+
+    // Para ISO
+    const isISO = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+    if (isISO){
+        window.location.href = url
+    } else {
+        window.open(url, "_blank")
+    }
 
     // Limpiar carrito
     carrito = [];
@@ -92,4 +100,3 @@ function comprar() {
     mensajeCompra.style.display = "block";
     setTimeout(() => mensajeCompra.style.display = "none", 2500);
 }
-
